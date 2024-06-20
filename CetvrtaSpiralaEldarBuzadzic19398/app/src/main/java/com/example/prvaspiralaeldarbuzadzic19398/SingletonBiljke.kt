@@ -14,7 +14,8 @@ object SingletonBiljka {
                 jela = listOf("Salata od paradajza", "Punjene tikvice"),
                 klimatskiTipovi = listOf(KlimatskiTip.SREDOZEMNA, KlimatskiTip.SUBTROPSKA),
                 zemljisniTipovi = listOf(Zemljiste.PJESKOVITO, Zemljiste.ILOVACA),
-                false
+                false,
+                id = 0
             ),
             Biljka(
                 naziv = "Nana (Mentha spicata)",
@@ -25,7 +26,8 @@ object SingletonBiljka {
                 jela = listOf("Jogurt sa voćem", "Gulaš"),
                 klimatskiTipovi = listOf(KlimatskiTip.SREDOZEMNA, KlimatskiTip.UMJERENA),
                 zemljisniTipovi = listOf(Zemljiste.GLINENO, Zemljiste.CRNICA),
-                false
+                false,
+                id = 1
             ),
             Biljka(
                 naziv = "Kamilica (Matricaria chamomilla)",
@@ -36,7 +38,8 @@ object SingletonBiljka {
                 jela = listOf("Čaj od kamilice"),
                 klimatskiTipovi = listOf(KlimatskiTip.UMJERENA, KlimatskiTip.SUBTROPSKA),
                 zemljisniTipovi = listOf(Zemljiste.PJESKOVITO, Zemljiste.KRECNJACKO),
-                false
+                false,
+                id = 2
             ),
             Biljka(
                 naziv = "Ružmarin (Rosmarinus officinalis)",
@@ -47,7 +50,8 @@ object SingletonBiljka {
                 jela = listOf("Pečeno pile", "Grah","Gulaš"),
                 klimatskiTipovi = listOf(KlimatskiTip.SREDOZEMNA, KlimatskiTip.SUHA),
                 zemljisniTipovi = listOf(Zemljiste.SLJUNKOVITO, Zemljiste.KRECNJACKO),
-                false
+                false,
+                id = 3
             ),
             Biljka(
                 naziv = "Lavanda (Lavandula angustifolia)",
@@ -58,7 +62,8 @@ object SingletonBiljka {
                 jela = listOf("Jogurt sa voćem"),
                 klimatskiTipovi = listOf(KlimatskiTip.SREDOZEMNA, KlimatskiTip.SUHA),
                 zemljisniTipovi = listOf(Zemljiste.PJESKOVITO, Zemljiste.KRECNJACKO),
-                false
+                false,
+                id = 4
             ),
             /*1. moja*/ Biljka(
                 naziv = "Kurkuma (Curcuma longa)",
@@ -69,7 +74,8 @@ object SingletonBiljka {
                 jela = listOf("Curry", "Smoothie", "Čaj"),
                 klimatskiTipovi = listOf(KlimatskiTip.TROPSKA, KlimatskiTip.SUBTROPSKA),
                 zemljisniTipovi = listOf(Zemljiste.ILOVACA),
-                false
+                false,
+                id = 5
             ),
             /*2. moja*/ Biljka(
                 naziv = "Limun (Citrus limon)",
@@ -80,7 +86,8 @@ object SingletonBiljka {
                 jela = listOf("Jogurt sa voćem", "Čaj"),
                 klimatskiTipovi = listOf(KlimatskiTip.TROPSKA, KlimatskiTip.SUBTROPSKA),
                 zemljisniTipovi = listOf(Zemljiste.PJESKOVITO),
-                false
+                false,
+                id = 6
             ),
             /*3. moja*/ Biljka(
                 naziv = "Šafran (Crocus sativus)",
@@ -91,7 +98,8 @@ object SingletonBiljka {
                 jela = listOf("Rižoto", "Gulaš"),
                 klimatskiTipovi = listOf(KlimatskiTip.UMJERENA),
                 zemljisniTipovi = listOf(Zemljiste.PJESKOVITO),
-                false
+                false,
+                id = 7
             ),
             /*4. moja*/ Biljka(
                 naziv = "Ruža (Rosa)",
@@ -102,7 +110,8 @@ object SingletonBiljka {
                 jela = listOf("Čaj", "Sirup", "Kolač"),
                 klimatskiTipovi = listOf(KlimatskiTip.UMJERENA),
                 zemljisniTipovi = listOf(Zemljiste.PJESKOVITO),
-                false
+                false,
+                id = 8
             ),
             /*5. moja*/ Biljka(
                 naziv = "Crni kim (Nigella sativa)",
@@ -113,7 +122,8 @@ object SingletonBiljka {
                 jela = listOf("Pecivo", "Začin"),
                 klimatskiTipovi = listOf(KlimatskiTip.UMJERENA),
                 zemljisniTipovi = listOf(Zemljiste.CRNICA),
-                false
+                false,
+                id = 9
             ),
             /*6. moja*/Biljka(
                 naziv = "(Cosmos bipinnatus)",
@@ -123,7 +133,9 @@ object SingletonBiljka {
                 profilOkusa = ProfilOkusaBiljke.KORIJENASTO,
                 jela = listOf("Gulas, Kifla"),
                 klimatskiTipovi = listOf(KlimatskiTip.SUHA),
-                zemljisniTipovi = listOf(Zemljiste.PJESKOVITO)
+                zemljisniTipovi = listOf(Zemljiste.PJESKOVITO),
+                false,
+                id = 10
             )
         )
         return ArrayList<Biljka>(biljke)

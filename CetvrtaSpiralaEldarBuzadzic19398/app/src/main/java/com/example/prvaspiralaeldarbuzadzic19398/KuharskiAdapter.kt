@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.ByteArrayOutputStream
 
 class KuharskiAdapter(private var biljke: List<Biljka>, private val onClickListener: (Biljka) -> Unit):
 
@@ -120,7 +121,8 @@ class KuharskiAdapter(private var biljke: List<Biljka>, private val onClickListe
             return withContext(Dispatchers.IO){
                 try {
                     var db = BiljkaDatabase.getInstance(context)
-                    var result = db.biljkaDao().addImage(idBiljke, bitmap)
+                    val cropovanBitmap = resizeAndCompressBitmap(bitmap, 1*1024*1024)
+                    var result = cropovanBitmap?.let { db.biljkaDao().addImage(idBiljke, it) }
                     return@withContext true
                 }catch(error: Exception){
                     System.out.println("Isti bitmap pokusano dodati")
@@ -140,6 +142,29 @@ class KuharskiAdapter(private var biljke: List<Biljka>, private val onClickListe
                     return@withContext null
                 }
             }
+        }
+
+        fun resizeAndCompressBitmap(bitmap: Bitmap, maxByteSize: Int): Bitmap? {
+            var width = bitmap.width
+            var height = bitmap.height
+            var scaledBitmap: Bitmap? = bitmap
+
+            // Compress and check size
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+            var bitmapByteArray = byteArrayOutputStream.toByteArray()
+
+            // Scale down the bitmap until it fits within the max byte size
+            while (bitmapByteArray.size > maxByteSize) {
+                width /= 2
+                height /= 2
+                scaledBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true)
+                byteArrayOutputStream.reset()
+                scaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+                bitmapByteArray = byteArrayOutputStream.toByteArray()
+            }
+
+            return scaledBitmap
         }
 
         suspend fun getImageFromDatabase(context: Context, idBiljke: Long): Bitmap?{

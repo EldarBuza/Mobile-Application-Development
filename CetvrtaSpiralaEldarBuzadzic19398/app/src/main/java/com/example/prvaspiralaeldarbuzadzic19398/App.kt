@@ -13,7 +13,7 @@ class App : Application() {
 
     override fun onCreate() {
         instance = this
-        super.onCreate()
+        //super.onCreate()
         val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         val isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
         val scope = CoroutineScope(Job() + Dispatchers.Main)
@@ -24,6 +24,7 @@ class App : Application() {
                     is String -> {
                         System.out.println(result)
                         sharedPreferences.edit().putBoolean("isFirstRun", false).apply()
+                        super.onCreate()
                     }
                     else ->{
                         throw(Exception("Nije dobro proslo"))
